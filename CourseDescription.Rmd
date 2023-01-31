@@ -1,0 +1,341 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+    fig_caption: yes
+    latex_engine: pdflatex
+geometry: margin=1in
+
+bibliography: ../library.bib
+csl: ../apa.csl
+nocite: |
+  @Wurtz2015
+
+title: "Finance Quantitative"
+author: Patrick Hénaff
+date: "Version: `r format(Sys.Date(), '%d %b %Y')`"
+email: "pa.henaff@gmail.com"
+
+fontfamily: mathpazo
+fontsize: 11pt
+header-includes:
+   - \linespread{1.05}
+   - \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE, cache=F, message=F, warning=F, results="hide"}
+knitr::opts_chunk$set(cache=TRUE)
+knitr::opts_chunk$set(fig.path='figs/')
+knitr::opts_chunk$set(cache.path='_cache/')
+knitr::opts_chunk$set(warning=F, message=F)
+```
+
+Le cours couvre plusieurs thèmes:
+
+- La gestion quantitative de portefeuille,
+- quelques notions sur la valorisation des produits dérivés (taux et actions),
+- les méthodes de Monte-Carlo en finance.
+
+## Gestion de portefeuille
+
+Les conditions de marché actuelles rendent particulièrement pertinentes les méthodes quantitatives de gestion de portefeuille. Dans le contexte Français, les taux bas mettent en cause la viabilité des fonds en euros des contrats d'assurance-vie, un des piliers de l'épargne des Français. Un objectif de ce cours sera de montrer comment la gestion quantitative peut apporter un élément de réponse à ce problème.
+
+Ce cours présente un panorama de la théorie et de la pratique de gestion quantitative de portefeuille. On abordera la gestion d'un portefeuille d'actions, et aussi, plus brièvement, la gestion obligataire quantitative. 
+
+## Valorisation des produits dérivés
+
+### Options sur actions et indices
+
+Le modèle de Black & Scholes, malgrés ses imperfections, peut être très largement utilisé grâce à quelques extensions que l'on va passer en revue. En particulier, on approfondira la méthode de valorisation et de couverture "Vanna-Volga", très utilisée sur le marché des changes.
+
+Le marché des options nous révèle les anticipations des marchés sur la dynamique risque-neutre des actifs. On étudiera comment calculer cette dynamique, et aussi comment valorisation des produits contingents quand on ne dispose que d'un historique de rendement du sous-jacent.
+
+### Options sur instruments de taux
+
+Pour valoriser des options sur instruments de taux (obligations, contrats à terme, swaps), il est necessaire de disposer d'un modèle de la dynamique des taux. On considèrera deux modèles de la dynamique des taux court-terme: le modèle de Black-Derman-Toy, qui n'a aujourd'hui qu'un intérêt historique, mais qui permet de bien comprendre le mécanisme de construction et d'utilisation de ce type de modèle. On considèrera ensuite le modèle à deux facteurs de Hull et White, qui est courrament utilisé pour générer des scénarios dans le cadre des réglementaires tels que Solvabilité II.
+
+## Méthodes de Monte-Carlo en finance
+
+Les méthodes de Monte-Carlo sont des techniques extrêmement pratiques pour valoriser des
+produits financiers complexes. De plus, la mise en oeuvre des algorithmes sur GPUs rendent ces méthodes étonnamment rapides. 
+
+
+# Manuel
+
+Pour la partie "gestion de portefeuille", le cours utilise le manuel de D. Wurtz: "Portfolio Optimization with R/Rmetrics", disponible gratuitement dans le dépot.
+Pour le reste, un manuel incontournable est "Finance de Marché" de R. Portait et P. Poncet.
+
+# Organisation pratique
+
+Le principe général du cours est celui de la "classe inversée". Il y a 18 modules de 2h30 dans le cours, et chacun s'articule selon le même schéma:
+
+- avant le cours, chacun étudie les documents mis à disposition (articles, chapitre du manuel)
+- le module commence par une intervention, pour résumer le sujet et répondre aux questions,
+- en binômes, les étudiants réalisent ensuite les travaux pratiques propres à chaque module, sous forme de notebooks "Rmarkdown". Tous les documents nécessaires se trouveront sur GitHub en temps utile, dans le dépôt public \texttt{phenaff/IMT-GestionPort}.
+
+Tout au long du cours, des vidéo-conférences seront programmées pour répondre aux questions soulevées par les travaux de groupe.
+
+
+# Evaluation
+
+Formez des groupes de 3 étudiants. Chaque groupe choisit de rendre 5 TPs parmi tous les TP proposés, chaque TP comptant pour 1/5 de la note, qui sera commune à tous les membres du groupe. Vous ne pouvez que choisir 1 TP parmi les 4 premiers, et vous devez rendre au moins 1 TP par thème (gestion de portefeuille, produits dérivés, méthode de Monte-Carlo). 
+
+Les TP sont à réaliser en notebook "Rmarkdown" [@Xie2019] et à rendre au format \texttt{.pdf}. Vous rendrez également le code source \texttt{.Rmd}. "Rmarkdown" est une technologie très utile à maîtriser, car elle permet de produire des analyses *reproductibles*, avec une mise en page de grande qualité. La présentation et mise en page des documents devra donc être soignée, et sera prise en compte dans l'évaluation. 
+
+Vous êtes fortement encouragés à profiter des vidéo-conférences pour valider l'avancement de vos travaux de groupe.
+
+Les TP sont à rendre *impérativement* 15 jours après le module correspondant, avant 23h59 du jour indiqué, en adressant les fichiers \texttt{.pdf} et \texttt{.Rmd} à l'adresse \texttt{pa.henaff@gmail.com}.
+
+Indiquez comme sujet "[IMT-TP-X] \<noms des auteurs\>", ou "X" est le numéro du TP.
+
+# Logiciel
+
+A chaque séance, on utilisera le logiciel R/Rstudio/Rmarkdown pour mettre immédiatement en pratique les concepts présentés. Ce logiciel est devenu un outil incontournable en finance quantitative, et en particulier en gestion de portefeuille. Vous devez donc venir à chaque cours avec votre ordinateur.
+
+# Prérequis
+
+## Avant la première séance
+
+- Si ce n'est pas le cas, se familiariser avec le système de gestion de version Git et Github. Installer un outil de gestion de version tel que SmartGit. Il est fortement
+suggéré à chaque groupe de travail de créer un dépôt privé sur GitHub.
+
+- installez R, RStudio, Rmarkdown, TinyTex et vérifiez que votre installation est opérationnelle en exécutant le document \texttt{TP-1/time.series.demo.Rmd}. Vérifiez votre maîtrise de R en faisant les exercices proposés dans ce document.
+
+**Avant** chaque module, il est indispensable d'étudier les documents fournis.
+
+# Programme
+
+## Module 1 (8/2): Séries chronologiques financières [@Cont2001]
+
+Dans cette séance introductive, on passera en revue les "faits stylisés" caractéristiques des séries chronologiques financières, et les méthodes de calcul de
+la covariance entre les actifs financiers.
+
+Documents à lire avant le cours:
+
+- Article de R. Cont (2001)
+- Note de cours "conditional probability"
+- Chapitres 5 à 10 de Wurtz (2015)
+
+Documents:
+
+- slides-1.pdf
+
+TP 1 (à rendre pour le `r as.Date("2023-02-08")+15`):
+
+- Observation des faits stylisés.
+- Estimation de quelques distributions et modèles dynamiques.
+- Estimation de la corrélation entre séries.
+
+## Module 2 (8/2): La théorie classique [@Markowitz1952]
+
+On considère ici le travail d'Harry Markowitz, qui établit les fondements de la gestion quantitative. Ce modèle reste  important car il a défini le vocabulaire et les concepts de base qui sont toujours d'actualité. 
+
+Documents à lire avant le cours:
+
+- Article de Markowitz (1952)
+- Chapitre 5 de Pfaff (2016)
+- Note de cours "Markowitz & Treynor-Black"
+
+Documents:
+
+- slides-2.pdf
+
+TP 2 (à rendre pour le `r as.Date("2023-02-08")+15`):
+
+- Construction d'une frontière efficiente.
+- Construction d'un portefeuille optimal moyenne/variance.
+
+## Module 3 (14/2): MEDAF, modèle à un facteur et mesure de performance. 
+
+Le modèle MEDAF (CAPM) et son pendant empirique, le modèle de marché à un facteur sont tous les deux dus à W. Sharpe. Ces modèles sont toujours importants aujourd'hui car ils servent de base aux mesures de performance des portefeuilles et des stratégies d'investissement.
+
+Documents à lire avant le cours:
+
+- Chapitre 5 de Pfaff (2016)
+- Notes "MEDAF et mesures de performance"
+
+Documents:
+
+- slides-3.pdf
+- Notes-MEDAF.pdf
+
+TP 3 (à rendre pour le `r as.Date("2023-02-14")+15`): 
+
+- Construction d'un modèle à 1 facteur
+
+## Module 4 (14/2): Modèle de Treynor-Black. Distinction "gestion active/gestion passive". [@Treynor1973]. Risque de modélisation. [@Boyle2012; @Ste1997]
+
+Dérivé lui aussi des travaux de Markowitz, le modèle de Treynor-Black est une avancée importante, car il est à l'origine de la distinction  "gestion active/gestion passive". Ce sont néanmoins des modèles fragiles, on les étudie aujourd'hui plus à cause du vocabulaire qu'ils ont introduit que pour leur utilité pratique.
+Identification du "risque de modélisation" dans le cadre du modèle moyenne/variance, et en particulier du risque
+lié à l'utilisation de la matrice de covariance.
+
+Documents à lire avant le cours:
+
+- Article de Treynor & Black (1973)
+- Note de cours "Markowitz & Treynor-Black"
+- Articles cités
+- Chapitre 10 de Pfaff (2016)
+
+Documents:
+
+- slides-TB.pdf
+- slides-MVO.pdf
+
+TP 4-1 (à rendre pour le `r as.Date("2023-02-14")+15`):
+
+- Optimisation de portefeuille selon Treynor-Black
+
+TP 4-2 (à rendre pour le `r as.Date("2023-02-14")+15`):
+
+- Impact de la matrice de covariance sur les résultats de modèle moyenne-variance.
+
+## Module 5 (15/2): Modèle de Black-Litterman. [@He2005]
+
+Le modèle de Black-Litterman et ses nombreuses extensions est très prisé des gestionnaires du fait de sa flexibilité. Il permet également de limiter les risques de modélisation identifiés précédemment.
+
+Documents à lire avant le cours:
+
+- Chapitre 13.3 de Pfaff (2016)
+- Article de Litterman et He
+
+Documents:
+
+- slides-BL.pdf
+- Notes-BL.pdf
+
+TP 5 (à rendre pour le `r as.Date("2023-02-15")+15`):
+
+- Comparaison du modèle M/V et du modèle de Black-Litterman.
+
+## Module 6 (21/2): Approche factorielle [@Fama1992; @Fama1993; @Harvey2016a]
+
+- Définition et identification des facteurs
+- Estimation et limites statistiques
+- Modèles d'allocation factoriels
+
+Documents à lire avant le cours:
+
+- Article cités
+
+Documents:
+
+- slides-MF.pdf
+- Notes-APT.pdf
+
+TP 6 (à rendre pour le `r as.Date("2023-02-21") + 15`):
+
+- Comparaison de trois mises en oeuvre du modèle MV: Covariance empirique, covariance estimée à partir d'une ACP, covariance estimée à partir du modèle de Fama-French à trois facteurs.
+
+## Module 7 (21/2): Méthodes récentes de gestion de portefeuille, "risk budgeting" [@Bruder2012]
+
+
+- Modèle 1/N
+- Modèle "risk parity"
+
+Documents à lire avant le cours:
+
+- Chapitre 11 de Pfaff (2016)
+- Article de Bruder et Roncalli
+
+Documents:
+
+- slides-RB.pdf
+
+TP 7 (à rendre pour le `r as.Date("2023-02-21")+15`):
+
+- calcul de portefeuilles selon des méthodes de "risk budgeting"
+
+## Module 8 (21/2): Rappel sur les instruments de taux
+
+- Courbe des taux actuarielle et zéro-coupon
+- Valorisation d'une obligation et d'un swap
+- Dynamique de la courbe des taux, analyse statistique
+- Mesure du risque de taux et principe de couverture
+
+
+## Modules 9 (22/2):
+
+Gestion de portefeuille obligataire: Immunisation et dédication [@Henaff2012].
+
+Survol du problème de gestion obligataire et des approches classiques: couverture en sensibilité et adossement des flux.
+
+Documents à lire avant le cours:
+
+- Chapitre 6 "Fixed Income Risk Management" 
+
+Documents:
+
+- Slides-Bonds.pdf
+
+TP 8 (à rendre pour le `r as.Date("2023-02-21")+15`):
+
+- Construction d'un portefeuille obligataire par programmation linéaire.
+
+## Modules 10 (22/2): 
+
+On suppose que le modèle binomial de Cox-Ross-Rubinstein et le modèle de Black-Scholes sont acquis. On s'intéresse ici à divers aménagements du modèle de base pour mieux prendre en compte les conditions de marché.
+
+- Existence et justification du "smile" de volatilité
+- Modèles de smile: Shimko [@Shimko1993a]
+- Formule de Breeden-Litzenberger
+
+## Module 11 (7/3): 
+
+- Pricing Vanna-Volga [@Ag2008]
+- Interpolation d'une surface de volatilité
+
+## Module 12 (7/3): 
+
+Modèles empiriques
+
+- Volatilité locale, arbre implicite, formule de Dupire
+- Valorisation selon une distribution empirique [@Potters2001]
+
+## Modules 13 (8/3): 
+Modélisation de la courbe de taux (modèle à un facteur)
+
+Les modèles de diffusion des taux sont indispensables pour valoriser les produits dérivés obligataires et pour simuler l'évolution de la courbe des taux.
+
+- ajustement paramétrique d'une courbe de taux []
+- le modèle à un facteur Black-Derman-Toy [@Boyle2000]
+
+## Module 14 (8/3): 
+Modélisation de la courbe de taux (modèle à un facteur)
+
+- Valorisation d'une option sur obligation dans le modèle BDT
+
+## Modules 15 (14/3): 
+Modélisation de la courbe des taux (modèle à deux facteurs)
+
+- le modèle de Hull et White [@Hull1996]
+- Valorisation de produits dérivés de taux.
+
+## Modules 16 (14/3): 
+Méthodes de Monte-Carlo
+
+La génération de scénarios "risque-neutres" est un pilier des méthodes
+de mesure du risque. Les méthodes de simulation sont de plus extrèmement 
+commodes pour construire des outils flexibles de valorisation des produits dérivés 
+complexes.
+
+- Simulation d'un processus log-normal
+- Calibration de scenarios de taux
+- Calibration de scenarios d'indices 
+
+## Module 17 (15/3)
+Méthode de Monte-Carlo
+
+- Valorisation d'une option Européenne
+- Méthodes de réduction de variance: scénarios antithétiques, variables de contrôle
+
+
+## Module 18 (15/3)
+Méthode de Monte-Carlo
+
+- Equation de Bellman et valorisation d'une option Américaine
+
+
+# Bibliographie
+
+
+

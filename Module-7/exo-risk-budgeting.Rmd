@@ -1,0 +1,18 @@
+## Exercice
+
+https://cran.r-project.org/web/packages/riskParityPortfolio/vignettes/RiskParityPortfolio.html
+
+
+
+Utiliser le package "riskParityPortfolio" et le dataset "monthly returns".
+
+A partir de l'exemple: "A pratical example using FAANG price data", comparer par un backtest les performances et la composition d'un portefeuille tangent et d'un portefeuille "risk parity".
+
+Ajouter des contraintes au portefeuille tangent:
+
++ Poids $<=$ 20%
++ Secteur Technologie $<=$ 30%
+
+
+https://cran.r-project.org/web/packages/riskParityPortfolio/vignettes/RiskParityPortfolio.html
+

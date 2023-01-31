@@ -1,0 +1,18 @@
+# list of required libraries
+
+library(tseries)
+library(timeSeries)
+library(quantmod)
+library(xts)
+library(hornpa)
+library(lubridate)
+library(xtable)
+library(PerformanceAnalytics)
+library(TTR)
+library(SuppDists)
+library(roll)
+library(Hmisc)
+library(nFactors)
+library(quadprog)
+library(portfolioBacktest)
+library(PortfolioAnalytics)

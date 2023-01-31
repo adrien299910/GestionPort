@@ -1,0 +1,96 @@
+---
+title: "Gestion de Portefeuille"
+subtitle: "TP-3: Modèle à un facteur"
+author: Patrick Hénaff
+date: "Version: `r format(Sys.Date(), '%d %b %Y')`"
+output:
+  pdf_document:
+    keep_tex: true
+    fig_caption: yes
+    latex_engine: pdflatex
+geometry: margin=1in
+
+header-includes:
+  - \usepackage[utf8]{inputenc}
+
+bibliography: ../../library.bib
+csl: ../../apa.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+```{r load-libraries, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+library(xts)
+library(hornpa)
+library(lubridate)
+library(xtable)
+library(PerformanceAnalytics)
+library(TTR)
+library(lubridate)
+library(roll)
+library(Hmisc)
+library(nFactors)
+library(kableExtra)
+library(broom)
+library(quadprog)
+```
+
+# Données
+
+## Séries de rendement mensuel pour 11 valeurs:
+
+```{r, eval=TRUE, echo=TRUE, warning=FALSE}
+monthly.ret.file <- "./monthly.ret.rda"
+load(monthly.ret.file)
+index(monthly.ret) <- floor_date(index(monthly.ret), "month")
+```
+
+## Matrice de corrélation des rendements:
+
+```{r, echo=TRUE}
+kable(cor(monthly.ret), "latex", booktabs=T) %>%
+kable_styling(latex_options=c("scale_down", "HOLD_position"))
+```
+
+## Rendement moyen mensuel
+
+```{r, echo=TRUE}
+kbl(colMeans(monthly.ret), format="latex", booktabs=T,
+    col.names=c("Rendement"), caption="Rendement moyen mensuel") %>%
+    kable_styling(latex_options="HOLD_position")
+```
+
+
+## Taux sans risque
+
+Le taux sans risque mensuel est obtenu de la Réserve Fédérale US. A diviser par 12 pour être cohérent avec les rendement des titres.
+
+```{r, echo=TRUE}
+tmp <- read.csv("DP_LIVE_01032020211755676.csv", header=TRUE, sep=";")[, c("TIME", "Value")]
+dt <- ymd(paste(tmp$TIME, "-01", sep=""))
+rf_rate <- xts((tmp$Value/100.0)/12, dt)
+colnames(rf_rate) <- "Rf"
+monthly.ret.2 <- merge.xts(monthly.ret, rf_rate, join="inner")
+```
+```{r, fig.cap="taux sans risque mensuel"}
+plot(rf_rate)
+```
+
+# Estimation d'un modèle à un facteur
+
+- Utiliser l'indice SPY comme proxy pour le marché et estimer pour chaque titre le modèle:
+
+$$
+R_i(t) - R_f(t) = \alpha + \beta (R_M(t) - R_f(t)) + \epsilon(t)
+$$
+en utilisant la fonction \texttt{lm}.
+- Placer chaque titre sur un diagramme rendement/beta et calculer par regression la droite de marché des titres risqués.
+- En déduire les titres qui, selon ce modèle, *semblent* chers et ceux qui semblent sous-évalués.
+
+Est-ce que ces mesures de cherté relative vous semble correctes? Essayez de mesurer la robustesse de ce calcul en estimant le modèles sur des sous-intervalles de temps.
+
+Présentez vos résultats de manière synthétique.
+

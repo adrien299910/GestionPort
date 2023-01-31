@@ -1,5 +1,5 @@
 # IMT-GestionPort
-Cours Gestion de Portefeuille - Institut Mines Télécom (Brest) 2023
+Cours Gestion de Portefeuille - Institut Mines Télécom (Brest) Février-Mars 2023.
 
 # Avant le début du cours
 
@@ -7,7 +7,7 @@ Cours Gestion de Portefeuille - Institut Mines Télécom (Brest) 2023
 
 - A l'aide de la liste **requirements.txt** ou bien du script **list_all_libraries.R**, installer tous les packages nécessaires.
 
-- Se procurer le manuel "Financial Risk Modeling and Portfolio Optimization with R".
+- Lire les premiers chapitres du livre "Portfolio Optimization with R/Rmetrics", disponible dans le dossier "Biblio"
 
 - Lire attentivement le document **Cours/CourseDescription** et effectuer les travaux préliminaires indiqués avant chaque séance.
 

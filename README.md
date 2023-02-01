@@ -5,7 +5,7 @@ Cours Gestion de Portefeuille - Institut Mines Télécom (Brest) Février-Mars 2
 
 - Installer R et Rstudio. Tout le code utilisé dans ce cours est éxécuté avec la version 4.2.2 du logiciel R et 2022.12.0 de Rstudio. 
 
-- A l'aide de la liste **requirements.txt** ou bien du script **list_all_libraries.R**, installer tous les packages nécessaires.
+- A l'aide de la liste **requirements.txt**, installer tous les packages nécessaires.
 
 - Lire les premiers chapitres du livre "Portfolio Optimization with R/Rmetrics", disponible dans le dossier "Biblio"
 

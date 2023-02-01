@@ -99,7 +99,7 @@ A chaque séance, on utilisera le logiciel R/Rstudio/Rmarkdown pour mettre immé
 - Si ce n'est pas le cas, se familiariser avec le système de gestion de version Git et Github. Installer un outil de gestion de version tel que SmartGit. Il est fortement
 suggéré à chaque groupe de travail de créer un dépôt privé sur GitHub.
 
-- installez R, RStudio, Rmarkdown, TinyTex et vérifiez que votre installation est opérationnelle en exécutant le document \texttt{TP-1/time.series.demo.Rmd}. Vérifiez votre maîtrise de R en faisant les exercices proposés dans ce document.
+- installez R, RStudio, Rmarkdown, TinyTex, les paquets listés dans le fichier \texttt{requirements.txt} et vérifiez que votre installation est opérationnelle en exécutant le document \texttt{TP-1/time.series.demo.Rmd}. Vérifiez votre maîtrise de R. 
 
 **Avant** chaque module, il est indispensable d'étudier les documents fournis.
 

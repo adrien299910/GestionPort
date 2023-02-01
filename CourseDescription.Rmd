@@ -207,7 +207,7 @@ TP 5 (à rendre pour le `r as.Date("2023-02-15")+15`):
 
 - Comparaison du modèle M/V et du modèle de Black-Litterman.
 
-## Module 6 (21/2): Approche factorielle [@Fama1992; @Fama1993; @Harvey2016a]
+## Module 6 (15/2): Approche factorielle [@Fama1992; @Fama1993; @Harvey2016a]
 
 - Définition et identification des facteurs
 - Estimation et limites statistiques

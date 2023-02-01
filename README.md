@@ -9,6 +9,6 @@ Cours Gestion de Portefeuille - Institut Mines Télécom (Brest) Février-Mars 2
 
 - Lire les premiers chapitres du livre "Portfolio Optimization with R/Rmetrics", disponible dans le dossier "Biblio"
 
-- Lire attentivement le document **Cours/CourseDescription** et effectuer les travaux préliminaires indiqués avant chaque séance.
+- Lire attentivement le document **CourseDescription** et effectuer les travaux préliminaires indiqués.
 
 

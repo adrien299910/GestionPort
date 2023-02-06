@@ -89,3 +89,16 @@ w_i \frac{\partial \sigma_P}{\partial w_i} = w_j \frac{\partial \sigma_P}{\parti
 $$
 Ecrire le système d'équations non-linéaires à résoudre, et utiliser la fonction
 nleqslv pour obtenir une solution.
+
+## Comparaison d'un portefeuille tangent et d'un portefeuille "risk budgeting"
+
+Lire la vignette de la librairie "riskParityPortfolio" 
+https://cran.r-project.org/web/packages/riskParityPortfolio/vignettes/RiskParityPortfolio.html
+
+A partir de l'exemple: "A pratical example using FAANG price data", comparer par un backtest les performances et la composition d'un portefeuille tangent et d'un portefeuille "risk parity". Utiliser le dataset "monthly returns".
+
+Ajouter des contraintes au portefeuille tangent:
+
++ Poids $<=$ 20%
++ Secteur Technologie $<=$ 30%
+

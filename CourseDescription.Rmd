@@ -1,7 +1,7 @@
 ---
-output: 
+output:
   pdf_document:
-    keep_tex: true
+    keep_tex: false
     fig_caption: yes
     latex_engine: pdflatex
 geometry: margin=1in
@@ -30,7 +30,7 @@ knitr::opts_chunk$set(cache.path='_cache/')
 knitr::opts_chunk$set(warning=F, message=F)
 ```
 
-Le cours couvre plusieurs thèmes:
+Le cours couvre   plusieurs thèmes:
 
 - La gestion quantitative de portefeuille,
 - quelques notions sur la valorisation des produits dérivés (taux et actions),
@@ -40,7 +40,7 @@ Le cours couvre plusieurs thèmes:
 
 Les conditions de marché actuelles rendent particulièrement pertinentes les méthodes quantitatives de gestion de portefeuille. Dans le contexte Français, les taux bas mettent en cause la viabilité des fonds en euros des contrats d'assurance-vie, un des piliers de l'épargne des Français. Un objectif de ce cours sera de montrer comment la gestion quantitative peut apporter un élément de réponse à ce problème.
 
-Ce cours présente un panorama de la théorie et de la pratique de gestion quantitative de portefeuille. On abordera la gestion d'un portefeuille d'actions, et aussi, plus brièvement, la gestion obligataire quantitative. 
+Ce cours présente un panorama de la théorie et de la pratique de gestion quantitative de portefeuille. On abordera la gestion d'un portefeuille d'actions, et aussi, plus brièvement, la gestion obligataire quantitative.
 
 ## Valorisation des produits dérivés
 
@@ -57,7 +57,7 @@ Pour valoriser des options sur instruments de taux (obligations, contrats à ter
 ## Méthodes de Monte-Carlo en finance
 
 Les méthodes de Monte-Carlo sont des techniques extrêmement pratiques pour valoriser des
-produits financiers complexes. De plus, la mise en oeuvre des algorithmes sur GPUs rendent ces méthodes étonnamment rapides. 
+produits financiers complexes. De plus, la mise en oeuvre des algorithmes sur GPUs rendent ces méthodes étonnamment rapides.
 
 
 # Manuel
@@ -78,9 +78,9 @@ Tout au long du cours, des vidéo-conférences seront programmées pour répondr
 
 # Evaluation
 
-Formez des groupes de 3 étudiants. Chaque groupe choisit de rendre 5 TPs parmi tous les TP proposés, chaque TP comptant pour 1/5 de la note, qui sera commune à tous les membres du groupe. Vous ne pouvez que choisir 1 TP parmi les 4 premiers, et vous devez rendre au moins 1 TP par thème (gestion de portefeuille, produits dérivés, méthode de Monte-Carlo). 
+Formez des groupes de 3 étudiants. Chaque groupe choisit de rendre 5 TPs parmi tous les TP proposés, chaque TP comptant pour 1/5 de la note, qui sera commune à tous les membres du groupe. Vous ne pouvez que choisir 1 TP parmi les 4 premiers, et vous devez rendre au moins 1 TP par thème (gestion de portefeuille, produits dérivés, méthode de Monte-Carlo).
 
-Les TP sont à réaliser en notebook "Rmarkdown" [@Xie2019] et à rendre au format \texttt{.pdf}. Vous rendrez également le code source \texttt{.Rmd}. "Rmarkdown" est une technologie très utile à maîtriser, car elle permet de produire des analyses *reproductibles*, avec une mise en page de grande qualité. La présentation et mise en page des documents devra donc être soignée, et sera prise en compte dans l'évaluation. 
+Les TP sont à réaliser en notebook "Rmarkdown" [@Xie2019] et à rendre au format \texttt{.pdf}. Vous rendrez également le code source \texttt{.Rmd}. "Rmarkdown" est une technologie très utile à maîtriser, car elle permet de produire des analyses *reproductibles*, avec une mise en page de grande qualité. La présentation et mise en page des documents devra donc être soignée, et sera prise en compte dans l'évaluation.
 
 Vous êtes fortement encouragés à profiter des vidéo-conférences pour valider l'avancement de vos travaux de groupe.
 
@@ -99,7 +99,7 @@ A chaque séance, on utilisera le logiciel R/Rstudio/Rmarkdown pour mettre immé
 - Si ce n'est pas le cas, se familiariser avec le système de gestion de version Git et Github. Installer un outil de gestion de version tel que SmartGit. Il est fortement
 suggéré à chaque groupe de travail de créer un dépôt privé sur GitHub.
 
-- installez R, RStudio, Rmarkdown, TinyTex, les paquets listés dans le fichier \texttt{requirements.txt} et vérifiez que votre installation est opérationnelle en exécutant le document \texttt{TP-1/time.series.demo.Rmd}. Vérifiez votre maîtrise de R. 
+- installez R, RStudio, Rmarkdown, TinyTex, les paquets listés dans le fichier \texttt{requirements.txt} et vérifiez que votre installation est opérationnelle en exécutant le document \texttt{TP-1/time.series.demo.Rmd}. Vérifiez votre maîtrise de R.
 
 **Avant** chaque module, il est indispensable d'étudier les documents fournis.
 
@@ -128,7 +128,7 @@ TP 1 (à rendre pour le `r as.Date("2023-02-08")+15`):
 
 ## Module 2 (8/2): La théorie classique [@Markowitz1952]
 
-On considère ici le travail d'Harry Markowitz, qui établit les fondements de la gestion quantitative. Ce modèle reste  important car il a défini le vocabulaire et les concepts de base qui sont toujours d'actualité. 
+On considère ici le travail d'Harry Markowitz, qui établit les fondements de la gestion quantitative. Ce modèle reste  important car il a défini le vocabulaire et les concepts de base qui sont toujours d'actualité.
 
 Documents à lire avant le cours:
 
@@ -145,7 +145,7 @@ TP 2 (à rendre pour le `r as.Date("2023-02-08")+15`):
 - Construction d'une frontière efficiente.
 - Construction d'un portefeuille optimal moyenne/variance.
 
-## Module 3 (14/2): MEDAF, modèle à un facteur et mesure de performance. 
+## Module 3 (14/2): MEDAF, modèle à un facteur et mesure de performance.
 
 Le modèle MEDAF (CAPM) et son pendant empirique, le modèle de marché à un facteur sont tous les deux dus à W. Sharpe. Ces modèles sont toujours importants aujourd'hui car ils servent de base aux mesures de performance des portefeuilles et des stratégies d'investissement.
 
@@ -159,7 +159,7 @@ Documents:
 - slides-3.pdf
 - Notes-MEDAF.pdf
 
-TP 3 (à rendre pour le `r as.Date("2023-02-14")+15`): 
+TP 3 (à rendre pour le `r as.Date("2023-02-14")+15`):
 
 - Construction d'un modèle à 1 facteur
 
@@ -234,8 +234,8 @@ TP 6 (à rendre pour le `r as.Date("2023-02-21") + 15`):
 
 Documents à lire avant le cours:
 
-- Chapitre 11 de Pfaff (2016)
 - Article de Bruder et Roncalli
+- Vignette de la librairie "riskParityPortfolio" (https://cran.r-project.org/web/packages/riskParityPortfolio/vignettes/RiskParityPortfolio.html)
 
 Documents:
 
@@ -252,16 +252,19 @@ TP 7 (à rendre pour le `r as.Date("2023-02-21")+15`):
 - Dynamique de la courbe des taux, analyse statistique
 - Mesure du risque de taux et principe de couverture
 
+Documents à lire avant le cours:
+
+- Chapitres 4-5 [@Henaff2012].
 
 ## Modules 9 (22/2):
 
-Gestion de portefeuille obligataire: Immunisation et dédication [@Henaff2012].
+Gestion de portefeuille obligataire: Immunisation et dédication.
 
 Survol du problème de gestion obligataire et des approches classiques: couverture en sensibilité et adossement des flux.
 
 Documents à lire avant le cours:
 
-- Chapitre 6 "Fixed Income Risk Management" 
+- Chapitre 6 "Fixed Income Risk Management" [@Henaff2012].
 
 Documents:
 
@@ -271,27 +274,42 @@ TP 8 (à rendre pour le `r as.Date("2023-02-21")+15`):
 
 - Construction d'un portefeuille obligataire par programmation linéaire.
 
-## Modules 10 (22/2): 
+## Modules 10 (22/2):
 
 On suppose que le modèle binomial de Cox-Ross-Rubinstein et le modèle de Black-Scholes sont acquis. On s'intéresse ici à divers aménagements du modèle de base pour mieux prendre en compte les conditions de marché.
+
+- Couverture dynamique dans le cadre Black-Scholes et ses limites
+- Pricing Vanna-Volga [@Ag2008]
+
+Documents à lire avant le cours:
+
+- Chapitre 9-10 [@Henaff2012]
+
+
+## Module 11 (7/3):
 
 - Existence et justification du "smile" de volatilité
 - Modèles de smile: Shimko [@Shimko1993a]
 - Formule de Breeden-Litzenberger
 
-## Module 11 (7/3): 
+Documents à lire avant le cours:
 
-- Pricing Vanna-Volga [@Ag2008]
-- Interpolation d'une surface de volatilité
+- Chapitre 13-14 [@Henaff2012]
 
-## Module 12 (7/3): 
+
+## Module 12 (7/3):
 
 Modèles empiriques
 
+- Interpolation d'une surface de volatilité
 - Volatilité locale, arbre implicite, formule de Dupire
 - Valorisation selon une distribution empirique [@Potters2001]
 
-## Modules 13 (8/3): 
+Documents à lire avant le cours:
+
+- Chapitre 
+## Modules 13 (8/3):
+
 Modélisation de la courbe de taux (modèle à un facteur)
 
 Les modèles de diffusion des taux sont indispensables pour valoriser les produits dérivés obligataires et pour simuler l'évolution de la courbe des taux.
@@ -299,30 +317,34 @@ Les modèles de diffusion des taux sont indispensables pour valoriser les produi
 - ajustement paramétrique d'une courbe de taux []
 - le modèle à un facteur Black-Derman-Toy [@Boyle2000]
 
-## Module 14 (8/3): 
+## Module 14 (8/3):
+
 Modélisation de la courbe de taux (modèle à un facteur)
 
 - Valorisation d'une option sur obligation dans le modèle BDT
 
-## Modules 15 (14/3): 
+## Modules 15 (14/3):
+
 Modélisation de la courbe des taux (modèle à deux facteurs)
 
 - le modèle de Hull et White [@Hull1996]
 - Valorisation de produits dérivés de taux.
 
-## Modules 16 (14/3): 
+## Modules 16 (14/3):
+
 Méthodes de Monte-Carlo
 
 La génération de scénarios "risque-neutres" est un pilier des méthodes
-de mesure du risque. Les méthodes de simulation sont de plus extrèmement 
-commodes pour construire des outils flexibles de valorisation des produits dérivés 
+de mesure du risque. Les méthodes de simulation sont de plus extrèmement
+commodes pour construire des outils flexibles de valorisation des produits dérivés
 complexes.
 
 - Simulation d'un processus log-normal
 - Calibration de scenarios de taux
-- Calibration de scenarios d'indices 
+- Calibration de scenarios d'indices
 
 ## Module 17 (15/3)
+
 Méthode de Monte-Carlo
 
 - Valorisation d'une option Européenne
@@ -330,10 +352,11 @@ Méthode de Monte-Carlo
 
 
 ## Module 18 (15/3)
+
 Méthode de Monte-Carlo
 
 - Equation de Bellman et valorisation d'une option Américaine
-
+- Application à la valorisation d'actifs industriels
 
 # Bibliographie
 

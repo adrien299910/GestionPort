@@ -75,7 +75,13 @@ kable(correl, "latex", booktabs=T, digits=2, caption="Corrélation des rendement
 kable_styling(latex_options="scale_down")
 ```
 
-# Droite de Marché des Capitaux (Capital Market Line)
+# Questions
+
+## Théorème de séparation des fonds
+
++ Vérifier empiriquement le théorème de séparation des fonds.
+
+## Droite de Marché des Capitaux (Capital Market Line)
 
 + A partir des calculs présentés en cours, mettre en oeuvre une méthode numérique
   pour déterminer le portefeuille tangent quand les poids des actifs risqués sont contraints à être positifs: $w_i >= 0$.

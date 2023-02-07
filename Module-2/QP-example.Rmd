@@ -45,10 +45,10 @@ write_matex2 <- function(x) {
 library(quadprog)
 ```
 
-
+````{comment}
 ```{r child = '../matrix-display.Rmd'}
 ```
-
+````
 
 To illustrate the solution method of a quadratic programming problem with linear equality and inequality constraints, consider the following problem:
 
@@ -120,10 +120,10 @@ Amat <- cbind(A_e, A_n)
 sol = solve.QP(Sigma, c(1,2,3), Amat, b, meq=1)
 ```
 
-```{r, echo=T}
+```{r, echo=F}
 library(kableExtra)
 names(sol$solution) <- seq(3)
-kable(sol$solution, "latex", booktabs=T, row.names = TRUE) %>%
-  kable_styling(full_width = F, position = "center")
+kable(sol$solution, "latex", booktabs=T, row.names = TRUE, caption="Solution") %>%
+  kable_styling(full_width = F, position = "center", latex_options = "HOLD_position")
 ```
 

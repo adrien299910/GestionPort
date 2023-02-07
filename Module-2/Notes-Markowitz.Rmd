@@ -35,10 +35,10 @@ knitr::opts_chunk$set(warning=F, message=F)
 
 \newtheorem{thm}{Theorem}
 
-In this short note, we summarize the mathematical elements of the classical portfolio theory of Markowitz. Today, the benefits of diversification seem unquestionable. But it has not always been that way. The famous economist and investor J. M. Keynes wrote in 1934 in a letter to the chairman of an insurance company:
+In this short note, we summarize the mathematical elements of the classical portfolio theory of Markowitz. Today, the benefits of diversification seem unquestionable. But it has not always been that way: in 1934, the famous economist and investor J. M. Keynes wrote this to the chairman of an insurance company:
 
-> "As time goes on I get more and more convinced that the right method > in investment
-> is to put fairly large sums into enterprise which one thinks one 
+> "As time goes on I get more and more convinced that the right method in investment
+> is to put fairly large sums into enterprises which one thinks one 
 > knows something
 > about and in the management of which one thoroughly believes."
 

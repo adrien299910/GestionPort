@@ -65,7 +65,6 @@ source(file.path(get.src.folder(), 'PowerLawUtils.R'))
 ## Financial Time Series (daily OHLC)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-price.series.file <- "./price.series.slides.1.rda"
 get.prices<-function(sym, from="2004-12-31"){
   prices<-getSymbols(sym, from, auto.assign=FALSE)
   p<-Ad(prices)
@@ -73,6 +72,7 @@ get.prices<-function(sym, from="2004-12-31"){
   list(OHLC=prices, AC=p)
 }
 
+price.series.file <- file.path(get.data.folder(), "price.series.slides.1.rda")
 symbols <- c("AMZN", "GOOG", "AAPL", "QQQ", "DIA", "SPY", "PG", "KO")
 
 if(!file.exists(price.series.file)) {
@@ -176,7 +176,7 @@ The density of $z_t$ can be approximated by a power law. See paper for details o
 $$
 \left.\begin{aligned}
 p(z_t) & = \frac{\alpha-1}{z_{min}} \left(\frac{z_t}{z_{min}} \right)^{-\alpha} \\
-Pr(z_t > x) & = \left(\frac{z_t}{z_{min}} \right)^{-\alpha+1}
+Pr(z_t > x) & = \left(\frac{x}{z_{min}} \right)^{-\alpha+1}
 \end{aligned}
 \right\} z_t > z_{min}
 $$
@@ -195,7 +195,7 @@ plot.cum.cond.r(r=r.AMZN, ticker = ticker, sgn='all',NBIN=nb, model='abs', param
 ## Unconditional distribution of return
 
 The Johnson family of distributions is formed by various transformations
-of the normal density. Let $X$ be the observed data, an define $Z$ by:
+of the normal density. Let $X$ be the observed data, and define $Z$ by:
 
 $$Z = \gamma + \delta \ln \left( g \left( \frac{X-\xi}{\lambda} \right) \right)$$
 

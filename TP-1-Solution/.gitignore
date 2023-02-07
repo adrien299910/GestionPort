@@ -1,6 +1,0 @@
-# knitr and R markdown default cache directories
-*_cache/
-*_files/
-figs/
-_cache/
-*.tex

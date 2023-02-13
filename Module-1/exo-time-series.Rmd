@@ -60,6 +60,14 @@ plot(ts.zc, main='Rendement quotidien - Zodiac Aerospace')
 
 Obtenir le même graphique avec un titre du CAC40. Présentez un graphique de prix et un autre de rendement quotidien.
 
+```{r, echo=TRUE}
+ts.air <- get.ts(folder="CAC40", ticker="air.pa")
+```
+
+```{r, fig-1, echo=FALSE, fig.width=10, fig.cap="Zodiac Aerospace"}
+plot(ts.air, main='Rendement quotidien - Air Liquide')
+```
+
 # Lecture de tous les composants de l'EuroStoxx 50
 
 On calcule ensuite le rendement moyen annuel et on présente les résultats sous forme de tableau.
@@ -86,7 +94,16 @@ knitr::kable(list(avg.ret.table[1:n.mid,], avg.ret.table[(n.mid+1):n.rows,]),
 ## Exercice 2
 
 Calculer la matrice de corrélation des rendements quotidients des actions de l'Eurostoxx50echerchez une manière synthétique de présenter le résultat.
+```{r, echo=TRUE, cache=TRUE}
+ts.EuroStoxx50 <- get.all.ts(folder="EuroStoxx50", returns=TRUE, combine=TRUE)
 
+library(corrplot) 
+mcor <- cor(ts.EuroStoxx50)
+
+corrplot(mcor, method = "color")
+
+
+```
 ## Exercice 3
 
 On sélectionne des séries NASDAQ avec au moins 7 ans de données, et on calcule le rendement annuel moyen.
@@ -111,7 +128,17 @@ good.ts.ret <- sapply(ts.all[good.indices],
                                                      na.rm=TRUE),1))
 
 good.df <- data.frame(ticker=toupper(good.ts.names), ret=good.ts.ret)
+good.df
 ```
-
+```{r, best_return, echo=TRUE, cache=TRUE}
+sorted_df <- good.df[order(-good.df$ret),]
+best_ret <-  head(sorted_df, 10)
+best_ret
+```
+```{r, worst_return, echo=TRUE, cache=TRUE}
+best_ret 
+worst_ret <-tail(sorted_df,10)
+worst_ret
+```
 Déterminez les 10 titres avec les meilleurs rendements moyens, et les 10 titres avec les rendements les plus bas.
 

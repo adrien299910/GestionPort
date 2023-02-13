@@ -13,8 +13,8 @@ geometry: margin=1in
 header-includes:
   - \usepackage[utf8]{inputenc}
 
-bibliography: ../../library.bib
-csl: ../../apa.csl
+#bibliography: ../../library.bib
+#csl: ../../apa.csl
 ---
 
 ```{r setup, include=FALSE}
@@ -93,7 +93,32 @@ print(sol$solution)
 # Questions
 
 ## Modifier le programme ci-dessus pour imposer des poids positifs.
+```{r, echo=TRUE}
+A.eq <- matrix(1, nrow=n,ncol=1)
+A.neq <- diag(n)
+A<- cbind(A.eq,A.neq)
+bvec2<- c(1, rep(0,n))
+w <- solve.QP(cov.all,dvec,A,bvec2,meq=1)
+#print(w$solution)
+w.opt<-w$solution
+w.opt[w.opt<.01]<-0
+w.opt<-w.opt / sum(w.opt)
+w.opt
+```
 
 ## Calculer le portefeuille risqué qui procure un rendement espéré de 13% par an.
+
+```{r, echo=TRUE}
+A.eq <- matrix(252*100*colMeans(daily.ret), nrow=n,ncol=1)
+A.neq <- diag(n)
+A<- cbind(A.eq,A.neq)
+bvec2<- c(13, rep(0,n))
+w <- solve.QP(cov.all,dvec,A,bvec2,meq=1)
+#print(w$solution)
+w.opt<-w$solution
+w.opt[w.opt<.01]<-0
+w.opt<-w.opt / sum(w.opt)
+w.opt
+```
 
 ## Si le taux sans risque est de 4%, quel est le portefeuille tangent correspondant?
